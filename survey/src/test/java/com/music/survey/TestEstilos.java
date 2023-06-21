@@ -1,0 +1,23 @@
+package com.music.survey;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+class TestEstilos {
+	@Autowired
+	private MockMvc mockMvc;
+
+	@Test
+	void contextLoads() throws Exception{
+		mockMvc.perform(MockMvcRequestBuilders.get("http://localhost:8080/api/estilos", 1))
+				.andExpect(MockMvcResultMatchers.status().isOk());
+	}
+
+}
